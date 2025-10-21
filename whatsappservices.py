@@ -55,7 +55,7 @@ def SendImageScren(link, telefono):
             }
             payload = {
                             
-                    "number": "59175002428",
+                    "number": "59175679775",
                     "mediatype": "image", # image, video or document
                     "mimetype": "image/jpeg",
                     "caption": "Test de QR",
