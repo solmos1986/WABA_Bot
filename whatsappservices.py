@@ -4,7 +4,7 @@ tk="8DA64BEAD41A-4C41-B565-4BD1C72915AF"#"FB2C96A5256D-4431-96E8-E0E3C971892D"##
 lk="https://evo-api-evolution-api.g8y8m7.easypanel.host/message/sendMedia/locker"#"https://evolutionapi-evolution-api.9wmqx3.easypanel.host/message/sendMedia/testsergio"#"https://graph.facebook.com/v22.0/870846042775736/messages "
 def SendMessageWhatsapp(textUser, number):
     try:
-        print(textUser,number)
+        print(textUser,number) 
         token=tk
         api_url=lk
         print(api_url)
