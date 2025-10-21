@@ -1,0 +1,4 @@
+Flask==2.2.5
+requests==2.32.3
+qrcode==8.2
+mysql-connector-python==8.0.32
