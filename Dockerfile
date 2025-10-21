@@ -7,6 +7,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 RUN pip install -r requirements.txt
+
+RUN mkdir -p /app/qrcodes
 EXPOSE 80
 
 CMD ["python","app.py"]
