@@ -4,7 +4,7 @@ import qrcode
 import json
 #import mysql.connector # type: ignore
 import os
-from PIL import Image
+#from PIL import Image
 
 def CodeConverter(code):
         print(code)
