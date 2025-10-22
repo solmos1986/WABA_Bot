@@ -38,7 +38,7 @@ def Files():
     img.save(ruta_completa)
 
     print(f"Imagen guardada en {ruta_completa}")
-    return
+    return ruta_completa
 
 def VerFiles():
     ruta="/images"
