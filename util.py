@@ -20,7 +20,7 @@ def GetUrl(number):
     return
 
 def Files():
-    url_img="https://images.pexels.com/photos/159304/network-cable-ethernet-computer-159304.jpeg"
+    url_img="https://i.postimg.cc/wvxfJ5Z4/100002-qr.png"
     respuesta=requests.get(url_img)
     if respuesta.status_code==200:
         ruta_guardado="/imagenes_qr"
