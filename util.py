@@ -35,7 +35,7 @@ def Files():
     return
 
 def VerFiles():
-    ruta="/images"
+    ruta="/imagenes_qr"
     files=str(os.listdir(ruta))
     print(files)
     return files
