@@ -23,8 +23,8 @@ def Files():
     url_img="https://images.pexels.com/photos/159304/network-cable-ethernet-computer-159304.jpeg"
     respuesta=requests.get(url_img)
     if respuesta.status_code==200:
-        ruta_guardado="/imagenes_qr"
-        with open(ruta_guardado) as f:
+        ruta_guardado="/imagenes_qr/imagen_descargada.jpeg"
+        with open(ruta_guardado,'wb') as f:
             f.write(respuesta.content)
         print("imagen guardada")
     else:
