@@ -24,7 +24,7 @@ def Files():
     respuesta=requests.get(url_img)
     if respuesta.status_code==200:
         ruta_guardado="/etc/easypanel/projects/waba-bot/waba-bot/volumes/imagenes_qr"
-        with open(ruta_guardado,'wb') as f:
+        with open(ruta_guardado) as f:
             f.write(respuesta.content)
         print("imagen guardada")
     else:
