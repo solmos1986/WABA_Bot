@@ -29,7 +29,7 @@ def Files():
         print("ruta ok")
         nombre_archivo="100002-qr.png"
         ruta_completa = f"{ruta_directorio}/{nombre_archivo}"
-        url_img.save(ruta_completa)
+        respuesta.save(ruta_completa)
         #with open(ruta_guardado,'wb') as f:
            # f.write(respuesta.content)
         #print("imagen guardada")
