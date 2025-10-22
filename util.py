@@ -18,3 +18,15 @@ def Registro(codLock, number):
 def GetUrl(number):
     url_api=actions.GetUrl()
     return
+
+def Files():
+    url_img="https://images.pexels.com/photos/159304/network-cable-ethernet-computer-159304.jpeg"
+    respuesta=requests.get(url_img)
+    if respuesta.status_code==200:
+        ruta_guardado="/images"
+        with open(ruta_guardado,'wb') as f:
+            f.write(respuesta.content)
+        print("imagen guardada")
+    else:
+        print("Error al descargar la imagen:",respuesta.status_code)
+    return
