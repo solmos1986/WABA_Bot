@@ -3,9 +3,11 @@ import qrconverter
 import whatsappservices
 import util
 import actions
-import os
+
 
 app=Flask(__name__)
+
+
 @app.route('/welcome/<name>',methods=['GET'])
 def index(name):  
     ver_files=util.VerFiles(name)
@@ -87,4 +89,5 @@ def ReceivedMov(codigo):
     return "retorner movement"
 
 if(__name__=="__main__"):
+   
     app.run(host='0.0.0.0', port=80)

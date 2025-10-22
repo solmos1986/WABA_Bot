@@ -44,6 +44,6 @@ def Files():
 def VerFiles(name_imagen):
     ruta="/images"
     files=glob.glob(os.path.join(ruta,""+name_imagen+""))
-    file_find=files[0] if files else None
+    file_find=files[0] if file_find else None
     
     return file_find
