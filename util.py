@@ -1,6 +1,7 @@
 import requests
 import json
 import actions
+import os
 
 def Registro(codLock, number):
     #AQUI RECIBO EL MESSAGE, LO SEPARO Y VERIFICO QUE SE IGUAL A:
@@ -32,3 +33,9 @@ def Files():
     else:
         print("Error al descargar la imagen:",respuesta.status_code)
     return
+
+def VerFiles():
+    ruta="/imagenes_qr"
+    files=str(os.listdir(ruta))
+    print(files)
+    return files

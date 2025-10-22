@@ -8,10 +8,10 @@ import os
 app=Flask(__name__)
 @app.route('/welcome',methods=['GET'])
 def index():  
-    ver_files=util.Files()
+    ver_files=util.VerFiles()
   
     
-    return "Bienvenido a WABA_Bot for Holding Home1"
+    return "Bienvenido a WABA_Bot for Holding Home1"+ver_files
 
 @app.route('/whatsapp',methods=['GET'])
 def VerifyToken():
