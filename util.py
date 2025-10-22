@@ -25,11 +25,14 @@ def Files():
     respuesta=requests.get(url_img)
     if respuesta.status_code==200:
         print("200")
-        ruta_guardado="/images"
+        ruta_directorio="/images"
         print("ruta ok")
-        with open(ruta_guardado,'wb') as f:
-            f.write(respuesta.content)
-        print("imagen guardada")
+        nombre_archivo="100002-qr.png"
+        ruta_completa = f"{ruta_directorio}/{nombre_archivo}"
+        url_img.save(ruta_completa)
+        #with open(ruta_guardado,'wb') as f:
+           # f.write(respuesta.content)
+        #print("imagen guardada")
     else:
         print("Error al descargar la imagen:",respuesta.status_code)
     return
