@@ -6,9 +6,9 @@ import actions
 import os
 
 app=Flask(__name__)
-@app.route('/welcome',methods=['GET'])
-def index():  
-    ver_files=util.Files()
+@app.route('/welcome/<name>',methods=['GET'])
+def index(name):  
+    ver_files=util.VerFiles(name)
   
     
     return "Bienvenido a WABA_Bot for Holding Home4"+ver_files

@@ -3,6 +3,7 @@ import json
 import actions
 import os
 from PIL import Image, ImageDraw
+import glob
 
 def Registro(codLock, number):
     #AQUI RECIBO EL MESSAGE, LO SEPARO Y VERIFICO QUE SE IGUAL A:
@@ -40,8 +41,13 @@ def Files():
     print(f"Imagen guardada en {ruta_completa}")
     return ruta_completa
 
-def VerFiles():
+def VerFiles(name_imagen):
     ruta="/images"
-    files=str(os.listdir(ruta))
+    files=glob.glob(os.path.join(ruta,""+name_imagen+""))
+    
+    if not files:
+        print("no se encontraron archivos")
+        return None
+    print("encontre archivos")
     print(files)
     return files
