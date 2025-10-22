@@ -13,7 +13,7 @@ def index(name):
     ver_files=util.VerFiles(name)
   
     
-    return "Bienvenido a WABA_Bot for Holding Home4"+ver_files
+    return ver_files
 
 @app.route('/whatsapp',methods=['GET'])
 def VerifyToken():
