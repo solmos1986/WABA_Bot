@@ -8,7 +8,7 @@ import os
 from urllib.parse import urlparse, parse_qs
 
 # Directorio donde están los archivos
-DIRECTORIO = "/ruta/al/directorio"  # Cambia por tu ruta
+DIRECTORIO = "/images"  # Cambia por tu ruta
 
 class MiHandler(BaseHTTPRequestHandler):
     def do_GET(self):
