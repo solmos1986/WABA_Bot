@@ -25,7 +25,7 @@ def Files():
     respuesta=requests.get(url_img)
     if respuesta.status_code==200:
         print("200")
-        ruta_guardado="/imagenes_qr"
+        ruta_guardado="/images"
         print("ruta ok")
         with open(ruta_guardado,'wb') as f:
             f.write(respuesta.content)
