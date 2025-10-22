@@ -137,6 +137,6 @@ def run():
     servidor.serve_forever()
 
 if(__name__=="__main__"):
-   
-    app.run(host='0.0.0.0', port=80)
     run()
+    app.run(host='0.0.0.0', port=80)
+    
