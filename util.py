@@ -23,7 +23,9 @@ def Files():
     url_img="https://i.postimg.cc/wvxfJ5Z4/100002-qr.png"
     respuesta=requests.get(url_img)
     if respuesta.status_code==200:
+        print("200")
         ruta_guardado="/imagenes_qr"
+        print("ruta ok")
         with open(ruta_guardado,'wb') as f:
             f.write(respuesta.content)
         print("imagen guardada")
