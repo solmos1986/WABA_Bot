@@ -3,7 +3,48 @@ import qrconverter
 import whatsappservices
 import util
 import actions
+from http.server import BaseHTTPRequestHandler, HTTPServer
+import os
+from urllib.parse import urlparse, parse_qs
 
+# Directorio donde están los archivos
+DIRECTORIO = "/ruta/al/directorio"  # Cambia por tu ruta
+
+class MiHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        # Parsear la URL
+        url_parse = urlparse(self.path)
+        query_params = parse_qs(url_parse.query)
+        
+        # Obtener el 'archivo' desde los parámetros GET
+        archivo = query_params.get('archivo', [None])[0]
+        
+        if archivo:
+            ruta_completa = os.path.join(DIRECTORIO, archivo)
+            if os.path.isfile(ruta_completa):
+                # Detectar MIME type según extensión
+                ext = os.path.splitext(ruta_completa)[1].lower()
+                if ext == '.png':
+                    self.send_response(200)
+                    self.send_header('Content-type', 'image/png')
+                elif ext in ['.jpg', '.jpeg']:
+                    self.send_header('Content-type', 'image/jpeg')
+                elif ext == '.html':
+                    self.send_header('Content-type', 'text/html')
+                else:
+                    self.send_header('Content-type', 'application/octet-stream')
+                self.end_headers()
+                with open(ruta_completa, 'rb') as f:
+                    self.wfile.write(f.read())
+            else:
+                self.send_response(404)
+                self.end_headers()
+                self.wfile.write(b"Archivo no encontrado")
+        else:
+            # No se pasó ningún parámetro 'archivo'
+            self.send_response(400)
+            self.end_headers()
+            self.wfile.write("Debe especificar el parámetro 'archivo' en la URL")
 
 app=Flask(__name__)
 
@@ -88,6 +129,14 @@ def ReceivedMov(codigo):
     #sqlscript
     return "retorner movement"
 
+def run():
+    puerto = 8000
+    print(f"Servidor arrancando en http://localhost:{puerto}")
+    print("Usa la URL: http://localhost:8000/?archivo=nombrearchivo.ext")
+    servidor = HTTPServer(('', puerto), MiHandler)
+    servidor.serve_forever()
+
 if(__name__=="__main__"):
    
     app.run(host='0.0.0.0', port=80)
+    run()
