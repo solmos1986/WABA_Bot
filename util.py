@@ -2,6 +2,7 @@ import requests
 import json
 import actions
 import os
+from PIL import Image, ImageDraw
 
 def Registro(codLock, number):
     #AQUI RECIBO EL MESSAGE, LO SEPARO Y VERIFICO QUE SE IGUAL A:
@@ -21,20 +22,22 @@ def GetUrl(number):
     return
 
 def Files():
-    url_img="https://i.postimg.cc/wvxfJ5Z4/100002-qr.png"
-    respuesta=requests.get(url_img)
-    if respuesta.status_code==200:
-        print("200")
-        ruta_directorio="/images"
-        print("ruta ok")
-        nombre_archivo="100002-qr.png"
-        ruta_completa = f"{ruta_directorio}/{nombre_archivo}"
-        respuesta.save(ruta_completa)
-        #with open(ruta_guardado,'wb') as f:
-           # f.write(respuesta.content)
-        #print("imagen guardada")
-    else:
-        print("Error al descargar la imagen:",respuesta.status_code)
+    # Crear una imagen nueva (ejemplo: color sólido)
+    img = Image.new('RGB', (200, 200), color='blue')
+
+    # Dibujar en la imagen si quieres añadir contenido
+    d = ImageDraw.Draw(img)
+    d.text((10, 10), "Hola", fill=(255,255,0))
+
+    # Especificar el directorio y nombre de archivo
+    ruta_directorio = "/images"
+    nombre_archivo = "mi_imagen.png"
+    ruta_completa = f"{ruta_directorio}/{nombre_archivo}"
+
+    # Guardar la imagen en ese directorio
+    img.save(ruta_completa)
+
+    print(f"Imagen guardada en {ruta_completa}")
     return
 
 def VerFiles():
